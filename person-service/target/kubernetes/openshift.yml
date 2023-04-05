@@ -1,0 +1,82 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.openshift.io/vcs-url: <<unknown>>
+    app.quarkus.io/commit-id: 500d064f9fba216c952cce79046d26fcc7747e04
+    app.quarkus.io/build-timestamp: 2023-04-05 - 15:43:21 +0000
+  labels:
+    app.kubernetes.io/name: person-service
+    app.kubernetes.io/version: 1.6.0
+    app.openshift.io/runtime: quarkus
+  name: person-service
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: person-service
+    app.kubernetes.io/version: 1.6.0
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app.openshift.io/vcs-url: <<unknown>>
+    app.quarkus.io/commit-id: 500d064f9fba216c952cce79046d26fcc7747e04
+    app.quarkus.io/build-timestamp: 2023-04-05 - 15:43:21 +0000
+  labels:
+    app.openshift.io/runtime: quarkus
+    app.kubernetes.io/version: 1.6.0
+    app.kubernetes.io/name: person-service
+  name: person-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/version: 1.6.0
+      app.kubernetes.io/name: person-service
+  template:
+    metadata:
+      labels:
+        app.openshift.io/runtime: quarkus
+        app.kubernetes.io/version: 1.6.0
+        app.kubernetes.io/name: person-service
+    spec:
+      containers:
+        - image: quay.io/wpernath/person-service:latest
+          imagePullPolicy: Always
+          name: person-service
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 256Mi
+            requests:
+              cpu: 250m
+              memory: 128Mi
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    app.openshift.io/vcs-url: <<unknown>>
+    app.quarkus.io/commit-id: 500d064f9fba216c952cce79046d26fcc7747e04
+    app.quarkus.io/build-timestamp: 2023-04-05 - 15:43:21 +0000
+  labels:
+    app.kubernetes.io/name: person-service
+    app.kubernetes.io/version: 1.6.0
+    app.openshift.io/runtime: quarkus
+  name: person-service
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: person-service

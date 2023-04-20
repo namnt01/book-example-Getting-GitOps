@@ -4,8 +4,8 @@ kind: Service
 metadata:
   annotations:
     app.openshift.io/vcs-url: <<unknown>>
-    app.quarkus.io/commit-id: 500d064f9fba216c952cce79046d26fcc7747e04
-    app.quarkus.io/build-timestamp: 2023-04-05 - 15:43:21 +0000
+    app.quarkus.io/commit-id: 8f716d14af22d71b363917b40d03e855839e82a4
+    app.quarkus.io/build-timestamp: 2023-04-20 - 09:42:34 +0000
   labels:
     app.kubernetes.io/name: person-service
     app.kubernetes.io/version: 1.6.0
@@ -15,7 +15,7 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: 8080
+      targetPort: 8083
   selector:
     app.kubernetes.io/name: person-service
     app.kubernetes.io/version: 1.6.0
@@ -26,8 +26,8 @@ kind: Deployment
 metadata:
   annotations:
     app.openshift.io/vcs-url: <<unknown>>
-    app.quarkus.io/commit-id: 500d064f9fba216c952cce79046d26fcc7747e04
-    app.quarkus.io/build-timestamp: 2023-04-05 - 15:43:21 +0000
+    app.quarkus.io/commit-id: 8f716d14af22d71b363917b40d03e855839e82a4
+    app.quarkus.io/build-timestamp: 2023-04-20 - 09:42:34 +0000
   labels:
     app.openshift.io/runtime: quarkus
     app.kubernetes.io/version: 1.6.0
@@ -47,11 +47,11 @@ spec:
         app.kubernetes.io/name: person-service
     spec:
       containers:
-        - image: quay.io/wpernath/person-service:latest
+        - image: quay.io/nam_nt/person-service:latest
           imagePullPolicy: Always
           name: person-service
           ports:
-            - containerPort: 8080
+            - containerPort: 8083
               name: http
               protocol: TCP
           resources:
@@ -67,8 +67,8 @@ kind: Route
 metadata:
   annotations:
     app.openshift.io/vcs-url: <<unknown>>
-    app.quarkus.io/commit-id: 500d064f9fba216c952cce79046d26fcc7747e04
-    app.quarkus.io/build-timestamp: 2023-04-05 - 15:43:21 +0000
+    app.quarkus.io/commit-id: 8f716d14af22d71b363917b40d03e855839e82a4
+    app.quarkus.io/build-timestamp: 2023-04-20 - 09:42:34 +0000
   labels:
     app.kubernetes.io/name: person-service
     app.kubernetes.io/version: 1.6.0
@@ -76,7 +76,7 @@ metadata:
   name: person-service
 spec:
   port:
-    targetPort: 8080
+    targetPort: 8083
   to:
     kind: Service
     name: person-service

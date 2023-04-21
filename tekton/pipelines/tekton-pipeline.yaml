@@ -4,7 +4,7 @@ metadata:
   name: build-and-push-image
 spec:
   params:
-    - default: 'https://github.com/wpernath/book-example.git'
+    - default: 'https://github.com/namnt01/book-example-Getting-GitOps.git'
       description: Source to the GIT
       name: git-url
       type: string

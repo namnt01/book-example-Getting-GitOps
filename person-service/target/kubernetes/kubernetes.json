@@ -3,8 +3,8 @@
   "kind" : "Service",
   "metadata" : {
     "annotations" : {
-      "app.quarkus.io/commit-id" : "8f716d14af22d71b363917b40d03e855839e82a4",
-      "app.quarkus.io/build-timestamp" : "2023-04-20 - 09:42:34 +0000"
+      "app.quarkus.io/commit-id" : "1ad9a5657ee13b487b6437ac8e522825c068542f",
+      "app.quarkus.io/build-timestamp" : "2023-04-21 - 02:54:25 +0000"
     },
     "labels" : {
       "app.kubernetes.io/name" : "person-service",
@@ -29,8 +29,8 @@
   "kind" : "Deployment",
   "metadata" : {
     "annotations" : {
-      "app.quarkus.io/commit-id" : "8f716d14af22d71b363917b40d03e855839e82a4",
-      "app.quarkus.io/build-timestamp" : "2023-04-20 - 09:42:34 +0000"
+      "app.quarkus.io/commit-id" : "1ad9a5657ee13b487b6437ac8e522825c068542f",
+      "app.quarkus.io/build-timestamp" : "2023-04-21 - 02:54:25 +0000"
     },
     "labels" : {
       "app.kubernetes.io/name" : "person-service",
@@ -49,8 +49,8 @@
     "template" : {
       "metadata" : {
         "annotations" : {
-          "app.quarkus.io/commit-id" : "8f716d14af22d71b363917b40d03e855839e82a4",
-          "app.quarkus.io/build-timestamp" : "2023-04-20 - 09:42:34 +0000"
+          "app.quarkus.io/commit-id" : "1ad9a5657ee13b487b6437ac8e522825c068542f",
+          "app.quarkus.io/build-timestamp" : "2023-04-21 - 02:54:25 +0000"
         },
         "labels" : {
           "app.kubernetes.io/name" : "person-service",

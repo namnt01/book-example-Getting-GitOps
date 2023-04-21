@@ -15,6 +15,6 @@ public class HelloResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "This is Tesing CI/CD";
+        return "This is Tesing CI/CD. Part II";
     }
 }
